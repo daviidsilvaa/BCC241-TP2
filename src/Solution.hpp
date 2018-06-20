@@ -1,4 +1,7 @@
 
+#ifndef SOLUTION_HPP
+#define SOLUTION_HPP
+
 #include "Bin.hpp"
 #include <vector>
 
@@ -31,3 +34,5 @@ public:
         this->fo = this->bins.size();
     }
 };
+
+#endif

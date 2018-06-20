@@ -6,7 +6,8 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
-#include "NextFit.hpp"
+#include "FirstFit.hpp"
+#include "BestFit.hpp"
 using namespace std;
 
 int ReadInstanceFile(ifstream *in_file, int *N, int *C){

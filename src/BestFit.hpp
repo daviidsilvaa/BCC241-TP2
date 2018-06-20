@@ -1,13 +1,10 @@
 
-#ifndef NEXTFIT_HPP
-#define NEXTFIT_HPP
-
 #include "Solution.hpp"
 #include <vector>
 using namespace std;
 
 // algoritmo de Proxima Melhora
-Solution nextFit(vector<Item> itens, int C){
+Solution bestFit(vector<Item> itens, int C){
     Solution solution = Solution();
 
     // adiciona mochila inicial na solucao
@@ -21,9 +18,16 @@ Solution nextFit(vector<Item> itens, int C){
         // elege um item aleatorio
         int i_item = rand() % itens.size();
 
-        // coloca o item na primeira mochila possivel
-        for(int i = 0; i < solution.bins.size() || (added == false); i++){
-            added = solution.bins[i].addItem(itens[i_item]);
+        // coloca o item na mochila mais leve
+        for(int attempts = 0; (attempts < solution.bins.size()) || (added == false); attempts++){
+            int tighest = 0;
+            for(int i = 1; i < solution.bins.size(); i++){
+                if(solution.bins[i].weight < solution.bins[tighest].weight){
+                    tighest = i;
+                }
+            }
+
+            added = solution.bins[tighest].addItem(itens[i_item]);
         }
 
         // se o item nao foi adicionado, abrimos uma nova mochila para ele
@@ -35,5 +39,3 @@ Solution nextFit(vector<Item> itens, int C){
 
     return solution;
 }
-
-#endif
