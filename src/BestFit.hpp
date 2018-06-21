@@ -1,4 +1,7 @@
 
+#ifndef BESTFIT_HPP
+#define BESTFIT_HPP
+
 #include "Solution.hpp"
 #include <vector>
 using namespace std;
@@ -39,3 +42,5 @@ Solution bestFit(vector<Item> itens, int C){
 
     return solution;
 }
+
+#endif

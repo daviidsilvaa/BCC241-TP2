@@ -1,4 +1,7 @@
 
+#ifndef FIRSTFIT_HPP
+#define FIRSTFIT_HPP
+
 #include "Solution.hpp"
 #include <vector>
 using namespace std;
@@ -32,3 +35,5 @@ Solution firstFit(vector<Item> itens, int C){
 
     return solution;
 }
+
+#endif
