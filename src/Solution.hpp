@@ -22,10 +22,10 @@ public:
 
     // adiciona mochila da solucao
     void removeBin(int id){
-        int i;
+        unsigned int i;
 
         for(i = 0; i < this->bins.size(); i++){
-            if(id = this->bins[i].id){
+            if(id == this->bins[i].id){
                 break;
             }
         }

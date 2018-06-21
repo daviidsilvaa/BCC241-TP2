@@ -4,6 +4,7 @@
 
 #include "Item.hpp"
 #include <vector>
+#include <iostream>
 
 class Bin{
 public:
@@ -33,6 +34,12 @@ public:
 
     ~Bin(){ }
 
+    // false caso nao tenha conflito
+    bool verifyConflict(Item item){
+        std::cout << conflict.size() << std::endl;
+        return (conflict[item.id].size() != 0);
+    }
+
     // adiciona item na mochia
     // retorna true se adicionou, false caso contrario
     bool addItem(Item item){
@@ -43,23 +50,18 @@ public:
         this->itens.push_back(item);
         this->weight += item.weight;
 
-        for(int j = 0; j < item.conflict.size(); j++){
+        for(unsigned int j = 0; j < item.conflict.size(); j++){
             this->conflict[item.conflict[j]].push_back(item.id);
         }
 
         return true;
     }
 
-    // false caso nao tenha conflito
-    bool verifyConflict(Item item){
-        return !(conflict[item.id].size() == 0);
-    }
-
     // remove item da mochia
     void removeItem(int i){
-        for(int h = 0; h < this->itens[i].conflict.size(); h++){
+        for(unsigned int h = 0; h < this->itens[i].conflict.size(); h++){
             int i_conflict = -1;
-            for(int j = 0; j < this->conflict[this->itens[i].conflict[h]].size(); j++){
+            for(unsigned int j = 0; j < this->conflict[this->itens[i].conflict[h]].size(); j++){
                 if(this->conflict[this->itens[i].conflict[h]][j] == i){
                     i_conflict = j;
                     break;

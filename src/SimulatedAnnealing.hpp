@@ -26,7 +26,6 @@ void swapSolutions(Solution *s1, Solution *s2){
 }
 
 int SimulatedAnnealing(float temp_init, float temp_final, int SAMax, Solution *s){
-
     Solution s_,sStar;
 
 	swapSolutions(&sStar,s);
