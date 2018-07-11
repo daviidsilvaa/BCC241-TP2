@@ -6,7 +6,11 @@
 #include <vector>
 using namespace std;
 
-// algoritmo de Proxima Melhora
+    // ! NAO FUNCIONA ! //
+    // ! NAO FUNCIONA ! //
+    // ! NAO FUNCIONA ! //
+
+// algoritmo de Melhor Melhora
 Solution bestFit(Bin bin, int C){
     Solution solution = Solution();
 

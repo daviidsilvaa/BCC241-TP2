@@ -40,6 +40,16 @@ public:
         time_outfile.close();
     }
 
+    void mountFile(char *path, Solution *solution){
+        ofstream time_outfile;
+
+        time_outfile.open("tempo/RandomConstruct.csv", time_outfile.app);
+
+        time_outfile << path << ";" << solution->fo << ";" << this->getTotalTime() << endl;
+
+        time_outfile.close();
+    }
+
 };
 
 #endif

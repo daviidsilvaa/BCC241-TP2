@@ -16,6 +16,15 @@ public:
         this->fo = this->bins.size();
     }
 
+    void updateFO(){
+        for(unsigned int i = 0; i < this->bins.size(); i++){
+            if(this->bins[i].itens.size() == 0){
+                this->bins.erase(this->bins.begin() + i);
+            }
+        }
+        this->fo = this->bins.size();
+    }
+
     // adiciona mochila na solucao
     void addBin(Bin bin){
         this->bins.push_back(bin);
